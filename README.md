@@ -238,10 +238,10 @@ docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql:vers
 
 - Redis
 
-  ​		创建和Redis持久化数据目录以及配置文件绑定的数据卷，执行启动命令`redis-server`，通过运行参数指定开启数据持久化，并指定6379端口
+  ​		创建和Redis持久化数据目录以及配置文件绑定的数据卷，执行启动命令`redis-server`，通过运行参数指定开启数据持久化，并指定6379端口，设定密码为foobared
 
 ```
-docker run -d -p 6379:6379 -v 宿主机目录:/data -v 宿主机文件目录:/usr/local/etc/redis/redis.conf --name redis redis redis-server --appendonly yes
+docker run -d -p 6379:6379 -v 宿主机目录:/data -v 宿主机文件目录:/usr/local/etc/redis/redis.conf --name redis redis:version redis-server --requirepass foobared
 ```
 
 #### 数据卷命令
